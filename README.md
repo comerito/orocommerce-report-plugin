@@ -69,7 +69,7 @@ Fill free to edit it any way you want.
 
 ### Any Questions?
 
-If you have any questions please see an [FAQ](https://comerito.com/report-extension/#FAQ)
+If you have any questions please see a [FAQ](https://comerito.com/report-extension/#FAQ)
 
 ## How to use GrumPHP
 
