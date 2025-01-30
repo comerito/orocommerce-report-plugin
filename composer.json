@@ -1,12 +1,13 @@
 {
-  "name": "vendor_name/package_name",
+  "name": "pat-lewczuk/orocommerce-report-plugin",
   "description": "description",
   "keywords": [
+    "comerito",
     "orocommerce",
     "orocommerce-plugin",
     "orocommerce-extension"
   ],
-  "homepage": "https://github.com/vendor_name/repo_name",
+  "homepage": "https://github.com/pat-lewczuk/orocommerce-report-plugin",
   "minimum-stability": "stable",
   "license": "EUPL-1.2",
   "authors": [
@@ -17,7 +18,7 @@
   ],
   "autoload": {
     "psr-4": {
-      "Vendor\\Bundle\\PackageNameBundle\\": "src/Vendor/Bundle/PackageNameBundle"
+      "Comerito\\Bundle\\ReportBundle\\": "src/Comerito/Bundle/ReportBundle"
     },
     "exclude-from-classmap": [
       "/tests/"
