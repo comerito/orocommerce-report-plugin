@@ -10,7 +10,51 @@ This extension provides six predefined, highly useful reports to help you gain d
 
 ## Installation
 
-To be prepared...
+### Step 1: Add the Repository
+
+Add the plugin's repository to your `composer.json` file:
+
+```json
+{
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/pat-lewczuk/orocommerce-report-plugin.git"
+    }
+  ]
+}
+```
+
+If you already have a repositories section in your composer.json, simply append this repository entry to the list.
+
+### Step 2: Require the Plugin
+
+Run the following Composer command to add the plugin as a dependency:
+
+```bash
+  composer require pat-lewczuk/orocommerce-report-plugin:dev-main
+```
+
+> **NOTE:** Replace **dev-main** with the appropriate branch or version tag if required.
+
+### Step 3: Enable the Plugin
+
+Run the following command to enable the plugin in OroCommerce:
+
+```bash
+  php bin/console oro:platform:update --force
+```
+
+### Step 4: Clear Cache
+
+Clear the cache to ensure the changes take effect:
+
+```bash
+  php bin/console cache:clear
+```
+## Usage
+
+To be added.
 
 ## How to use GrumPHP
 
