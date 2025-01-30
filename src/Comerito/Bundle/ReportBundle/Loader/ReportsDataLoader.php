@@ -59,18 +59,11 @@ class ReportsDataLoader
         ],
         [
             'name' => 'Segment Revenue Share',
-            'description' => 'Segment Revenue Share measures the percentage of total revenue contributed by a specific customer segment within a given period.',
+            'description' => 'Segment Revenue Share measures the total revenue contributed by a specific customer segment within a given period.',
             'type' => ReportType::TYPE_TABLE,
             'entity' => Order::class,
-            'definition' => '{"columns":[{"name":"totalValue","label":"Total","func":{"name":"Sum","group_type":"aggregates","group_name":"number"},"sorting":""},{"name":"customer+Oro\\\\Bundle\\\\CustomerBundle\\\\Entity\\\\Customer::group+Oro\\\\Bundle\\\\CustomerBundle\\\\Entity\\\\CustomerGroup::name","label":"Name","func":"","sorting":""},{"name":"customer+Oro\\\\Bundle\\\\CustomerBundle\\\\Entity\\\\Customer::addresses+Oro\\\\Bundle\\\\CustomerBundle\\\\Entity\\\\CustomerAddress::country_name","label":"Country name","func":"","sorting":""}],"grouping_columns":[{"name":"customer+Oro\\\\Bundle\\\\CustomerBundle\\\\Entity\\\\Customer::group+Oro\\\\Bundle\\\\CustomerBundle\\\\Entity\\\\CustomerGroup::name"},{"name":"customer+Oro\\\\Bundle\\\\CustomerBundle\\\\Entity\\\\Customer::addresses+Oro\\\\Bundle\\\\CustomerBundle\\\\Entity\\\\CustomerAddress::country_name"}],"date_grouping":{"fieldName":"createdAt","useSkipEmptyPeriodsFilter":true,"useDateGroupFilter":true}}'
-        ],
-        [
-            'name' => 'Total Customer Spend',
-            'description' => 'This report tracks the total amount spent by each customer, helping you identify top buyers and analyze their contribution to your revenue.',
-            'type' => ReportType::TYPE_TABLE,
-            'entity' => Order::class,
-            'definition' => '{"columns":[{"name":"totalValue","label":"Total","func":{"name":"Sum","group_type":"aggregates","group_name":"number"},"sorting":""},{"name":"customer+Oro\\\\Bundle\\\\CustomerBundle\\\\Entity\\\\Customer::group+Oro\\\\Bundle\\\\CustomerBundle\\\\Entity\\\\CustomerGroup::name","label":"Name","func":"","sorting":""},{"name":"customer+Oro\\\\Bundle\\\\CustomerBundle\\\\Entity\\\\Customer::addresses+Oro\\\\Bundle\\\\CustomerBundle\\\\Entity\\\\CustomerAddress::country_name","label":"Country name","func":"","sorting":""}],"grouping_columns":[{"name":"customer+Oro\\\\Bundle\\\\CustomerBundle\\\\Entity\\\\Customer::group+Oro\\\\Bundle\\\\CustomerBundle\\\\Entity\\\\CustomerGroup::name"},{"name":"customer+Oro\\\\Bundle\\\\CustomerBundle\\\\Entity\\\\Customer::addresses+Oro\\\\Bundle\\\\CustomerBundle\\\\Entity\\\\CustomerAddress::country_name"}],"date_grouping":{"fieldName":"createdAt","useSkipEmptyPeriodsFilter":true,"useDateGroupFilter":true}}'
-        ],
+            'definition' => '{"columns":[{"name":"name","label":"Name","func":"","sorting":""},{"name":"Oro\\\\Bundle\\\\CustomerBundle\\\\Entity\\\\Customer::group+Oro\\\\Bundle\\\\CustomerBundle\\\\Entity\\\\Customer::Oro\\\\Bundle\\\\OrderBundle\\\\Entity\\\\Order::customer+Oro\\\\Bundle\\\\OrderBundle\\\\Entity\\\\Order::totalValue","label":"Total","func":{"name":"Sum","group_type":"aggregates","group_name":"number"},"sorting":"DESC"}],"grouping_columns":[{"name":"name"}]}'
+        ]
     ];
 
     // @codingStandardsIgnoreEnd
