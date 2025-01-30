@@ -19,7 +19,7 @@ Add the plugin's repository to your `composer.json` file:
   "repositories": [
     {
       "type": "vcs",
-      "url": "https://github.com/pat-lewczuk/orocommerce-report-plugin.git"
+      "url": "https://github.com/pat-lewczuk/orocommerce-report-plugin"
     }
   ]
 }
@@ -32,7 +32,7 @@ If you already have a repositories section in your composer.json, simply append 
 Run the following Composer command to add the plugin as a dependency:
 
 ```bash
-  composer require pat-lewczuk/orocommerce-report-plugin:dev-main
+  composer require pat-lewczuk/orocommerce-report-plugin:dev-master
 ```
 
 > **NOTE:** Replace **dev-main** with the appropriate branch or version tag if required.
