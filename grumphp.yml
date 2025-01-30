@@ -1,0 +1,29 @@
+# grumphp.yml
+grumphp:
+  hooks_preset: local
+  tasks:
+    git_blacklist:
+      keywords:
+        - 'var_dump'
+        - 'dump('
+        - 'print_r'
+        - 'die('
+        - 'console\.'
+      triggered_by: [ php, twig, js ]
+    phpcs:
+      standard: PSR12
+    phpstan:
+      level: 5
+    phpunit:
+      always_execute: true
+    securitychecker_enlightn:
+      run_always: true
+    phpmd:
+      ruleset: ['ruleset/.php_md.xml']
+    yamllint:
+      parse_custom_tags: true
+    phplint:
+      exclude: [ 'vendor' ]
+      triggered_by: [ 'php' ]
+    jsonlint:
+      detect_key_conflicts: true

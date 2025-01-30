@@ -1,0 +1,53 @@
+{
+  "name": "vendor_name/package_name",
+  "description": "description",
+  "keywords": [
+    "orocommerce",
+    "orocommerce-plugin",
+    "orocommerce-extension"
+  ],
+  "homepage": "https://github.com/vendor_name/repo_name",
+  "minimum-stability": "stable",
+  "license": "EUPL-1.2",
+  "authors": [
+    {
+      "name": "pat-lewczuk",
+      "email": "plewczuk513@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Vendor\\Bundle\\PackageNameBundle\\": "src/Vendor/Bundle/PackageNameBundle"
+    },
+    "exclude-from-classmap": [
+      "/tests/"
+    ]
+  },
+  "require": {
+    "php": ">=8.0 <=8.4",
+    "oro/commerce": "^5.0 | =6.0"
+  },
+  "repositories": {
+    "oro": {
+      "type": "composer",
+      "url": "https://packagist.orocrm.com"
+    }
+  },
+  "require-dev": {
+    "phpro/grumphp": "^2.9",
+    "phpmd/phpmd": "^2.15",
+    "phpstan/phpstan": "^2.0",
+    "squizlabs/php_codesniffer": "^3.11",
+    "enlightn/security-checker": "^1.11",
+    "phpunit/phpunit": "~9.5.27",
+    "php-parallel-lint/php-parallel-lint": "^1.4"
+  },
+  "config": {
+    "allow-plugins": {
+      "symfony/runtime": true,
+      "symfony/flex": true,
+      "php-http/discovery": true,
+      "phpro/grumphp": true
+    }
+  }
+}
