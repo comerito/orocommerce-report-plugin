@@ -59,7 +59,7 @@ Click Save and Close button. After this action on integrations list you should s
 
 ### Step 2: Activation
 
-You are 2 clicks from using new reports 😁. Now all you need to do is click on 3 dots (left side of integration) and select activation icon.
+You are 2 clicks from using new reports 😁. Now all you need to do is click on 3 dots (right side of integrations list page) and select activation icon.
 
 ![Activate an integration](./docs/media/activate-integration.png)
 
