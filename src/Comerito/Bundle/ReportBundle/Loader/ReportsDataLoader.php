@@ -11,6 +11,7 @@ use Oro\Bundle\OrganizationBundle\Entity\Organization;
 use Oro\Bundle\ReportBundle\Entity\Report;
 use Oro\Bundle\ReportBundle\Entity\ReportType;
 
+/** Class responsible to load all report related data to database */
 class ReportsDataLoader
 {
     public function __construct(

@@ -7,3 +7,8 @@ services:
             - { name: kernel.event_listener, event: oro_integration.channel_enable, method: onIntegrationEnable }
             - { name: kernel.event_listener, event: oro_integration.channel_disable, method: onIntegrationDisableOrDelete }
             - { name: kernel.event_listener, event: oro_integration.channel_delete, method: onIntegrationDisableOrDelete }
+
+    comerito_raport.persist_channel_listener:
+        class: Comerito\Bundle\ReportBundle\EventListener\IntegrationChannelPersistEventListener
+        tags:
+            - { name: doctrine.event_listener, event: prePersist, priority: -5 }
