@@ -7,8 +7,7 @@ use Oro\Bundle\IntegrationBundle\Provider\IconAwareIntegrationInterface;
 
 class ReportChannel implements ChannelInterface, IconAwareIntegrationInterface
 {
-
-    const string TYPE = 'comerito_report_channel';
+    public const TYPE = 'comerito_report_channel';
 
     public function getLabel(): string
     {

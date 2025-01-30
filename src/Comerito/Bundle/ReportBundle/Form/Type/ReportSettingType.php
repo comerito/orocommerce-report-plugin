@@ -14,12 +14,14 @@ class ReportSettingType extends AbstractType
 {
     public function __construct(
         protected ManagerRegistry $registry
-    )
-    {
+    ) {
     }
 
-    const string BLOCK_PREFIX = 'comerito_report_settings';
+    public const BLOCK_PREFIX = 'comerito_report_settings';
 
+    /**
+     * @SuppressWarnings("PHPMD.UnusedFormalParameter")
+     */
     #[\Override]
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
