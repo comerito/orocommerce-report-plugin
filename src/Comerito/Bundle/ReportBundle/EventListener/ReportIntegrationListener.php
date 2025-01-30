@@ -12,11 +12,8 @@ readonly class ReportIntegrationListener
 {
     public function __construct(
         private ReportsDataLoader $reportsDataLoader,
-    )
-    {
+    ) {
     }
-
-    // TODO dodać obsługę dodania Integracji
 
     public function onIntegrationEnable(ChannelEnableEvent $event): void
     {
@@ -25,7 +22,6 @@ readonly class ReportIntegrationListener
         if ($channelType === ReportChannel::TYPE) {
             $transport = $channel->getTransport();
 
-            // TODO add null handling
             $businessUnitName = $transport->getSettingsBag()->get('business_unit_name');
 
             $this->reportsDataLoader->load($channel, $businessUnitName);

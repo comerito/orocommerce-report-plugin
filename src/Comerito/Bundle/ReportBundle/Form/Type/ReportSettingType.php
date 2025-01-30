@@ -25,7 +25,6 @@ class ReportSettingType extends AbstractType
     #[\Override]
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
-        // TODO zabezpieczenie aby widzieć tylko te jednostki biznesowe do którym mam dostęp
         $builder->add(
             'businessUnitName',
             ChoiceType::class,
@@ -46,6 +45,7 @@ class ReportSettingType extends AbstractType
 
     protected function getBusinessUnitNames(): array
     {
+        // TODO manage access rules to retrieve restricted BusinessUnit list
         $repository = $this->registry->getRepository(BusinessUnit::class);
         $businessUnits = $repository->findAll();
 
