@@ -4,6 +4,8 @@ namespace Comerito\Bundle\ReportBundle\Loader;
 
 use Doctrine\Persistence\ManagerRegistry;
 use Oro\Bundle\AccountBundle\Entity\Account;
+use Oro\Bundle\CustomerBundle\Entity\Customer;
+use Oro\Bundle\CustomerBundle\Entity\CustomerGroup;
 use Oro\Bundle\IntegrationBundle\Entity\Channel;
 use Oro\Bundle\OrderBundle\Entity\Order;
 use Oro\Bundle\OrganizationBundle\Entity\BusinessUnit;
@@ -61,8 +63,15 @@ class ReportsDataLoader
             'name' => 'Segment Revenue Share',
             'description' => 'Segment Revenue Share measures the total revenue contributed by a specific customer segment within a given period.',
             'type' => ReportType::TYPE_TABLE,
-            'entity' => Order::class,
+            'entity' => CustomerGroup::class,
             'definition' => '{"columns":[{"name":"name","label":"Name","func":"","sorting":""},{"name":"Oro\\\\Bundle\\\\CustomerBundle\\\\Entity\\\\Customer::group+Oro\\\\Bundle\\\\CustomerBundle\\\\Entity\\\\Customer::Oro\\\\Bundle\\\\OrderBundle\\\\Entity\\\\Order::customer+Oro\\\\Bundle\\\\OrderBundle\\\\Entity\\\\Order::totalValue","label":"Total","func":{"name":"Sum","group_type":"aggregates","group_name":"number"},"sorting":"DESC"}],"grouping_columns":[{"name":"name"}]}'
+        ],
+        [
+            'name' => 'Total Customer Spend',
+            'description' => 'This report tracks the total amount spent by each customer, helping you identify top buyers and analyze their contribution to your revenue.',
+            'type' => ReportType::TYPE_TABLE,
+            'entity' => Customer::class,
+            'definition' => '{"columns":[{"name":"name","label":"Customer","func":"","sorting":""},{"name":"Oro\\\\Bundle\\\\OrderBundle\\\\Entity\\\\Order::customer+Oro\\\\Bundle\\\\OrderBundle\\\\Entity\\\\Order::totalValue","label":"Total Revenue","func":{"name":"Sum","group_type":"aggregates","group_name":"number"},"sorting":"DESC"}],"grouping_columns":[{"name":"name"}],"filters":[[{"columnName":"Oro\\\\Bundle\\\\OrderBundle\\\\Entity\\\\Order::customer+Oro\\\\Bundle\\\\OrderBundle\\\\Entity\\\\Order::totalValue","criterion":{"filter":"number","data":{"value":0,"type":"2","params":{"filter_by_having":true}}},"func":{"name":"Sum","group_type":"aggregates","group_name":"number"},"criteria":"aggregated-condition-item"}]]}'
         ]
     ];
 
