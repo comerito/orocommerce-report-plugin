@@ -35,7 +35,41 @@ Clear the cache to ensure the changes take effect:
 ```
 ## Usage
 
-To be added.
+### Step 1: Create integration
+
+After installation process, you will be able to create Comerito Report Integration.
+
+To do so, you need to navigate in your OroCommerce backoffice panel to System >> Integration >> Manage Integrations.
+
+Click to 'Create Integration' button.
+
+![Create Integration Button](./docs/media/create-integration-button.png)
+
+Select 'Comerito Report' integration.
+
+![Select Comerito Report from dropdown list](./docs/media/create-integration-select.png)
+
+Fill out required information. In this step you can choose for which business unit report will be available.
+
+![Fill out all required fields in creation form](./docs/media/create-integration.png)
+
+Click Save and Close button. After this action on integrations list you should see Comerito Reports in Inactive status.
+
+![Comerito report on integration list](./docs/media/integration-list.png)
+
+### Step 2: Activation
+
+You are 2 clicks from using new reports 😁. Now all you need to do is click on 3 dots (left side of integration) and select activation icon.
+
+![Activate an integration](./docs/media/activate-integration.png)
+
+Now all you need to do is to refresh site. In your 'Reports & Segment' section you will see 6 brand-new reports created for you.
+
+Fill free to edit it any way you want.
+
+### Any Questions?
+
+If you have any questions please see an [FAQ](https://comerito.com/report-extension/#FAQ)
 
 ## How to use GrumPHP
 
