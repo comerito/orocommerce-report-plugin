@@ -10,34 +10,15 @@ This extension provides six predefined, highly useful reports to help you gain d
 
 ## Installation
 
-### Step 1: Add the Repository
-
-Add the plugin's repository to your `composer.json` file:
-
-```json
-{
-  "repositories": [
-    {
-      "type": "vcs",
-      "url": "https://github.com/pat-lewczuk/orocommerce-report-plugin"
-    }
-  ]
-}
-```
-
-If you already have a repositories section in your composer.json, simply append this repository entry to the list.
-
-### Step 2: Require the Plugin
+### Step 1: Require the Plugin using composer
 
 Run the following Composer command to add the plugin as a dependency:
 
 ```bash
-  composer require pat-lewczuk/orocommerce-report-plugin:dev-master
+  composer require comerito/orocommerce-report-plugin
 ```
 
-> **NOTE:** Replace **dev-main** with the appropriate branch or version tag if required.
-
-### Step 3: Enable the Plugin
+### Step 2: Enable the Plugin
 
 Run the following command to enable the plugin in OroCommerce:
 
@@ -45,7 +26,7 @@ Run the following command to enable the plugin in OroCommerce:
   php bin/console oro:platform:update --force
 ```
 
-### Step 4: Clear Cache
+### Step 3: Clear Cache
 
 Clear the cache to ensure the changes take effect:
 
