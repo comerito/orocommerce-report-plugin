@@ -1,0 +1,6 @@
+services:
+    comerito_report.loader.reports_data_loader:
+        class: Comerito\Bundle\ReportBundle\Loader\ReportsDataLoader
+        arguments:
+            - '@doctrine'
+

@@ -1,0 +1,10 @@
+services:
+  comerito_report.integration.report:
+    class: Comerito\Bundle\ReportBundle\Integration\ReportChannel
+    tags:
+      - { name: oro_integration.channel, type: comerito_report_channel }
+
+  comerito_report.integration.transport.report:
+    class: Comerito\Bundle\ReportBundle\Integration\ReportTransport
+    tags:
+      - { name: oro_integration.transport, channel_type: comerito_report_channel, type: report }

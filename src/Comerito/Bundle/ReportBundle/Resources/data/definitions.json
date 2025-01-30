@@ -1,0 +1,59 @@
+[
+  {
+    "columns": [
+      {
+        "name": "customer+Oro\\Bundle\\CustomerBundle\\Entity\\Customer::name",
+        "label": "Name",
+        "func": "",
+        "sorting": "DESC"
+      },
+      {
+        "name": "totalValue",
+        "label": "Total",
+        "func": {
+          "name": "Sum",
+          "group_type": "aggregates",
+          "group_name": "number"
+        },
+        "sorting": ""
+      }
+    ],
+    "grouping_columns": [
+      {
+        "name": "customer+Oro\\Bundle\\CustomerBundle\\Entity\\Customer::name"
+      }
+    ],
+    "date_grouping": {
+      "fieldName": "createdAt",
+      "useSkipEmptyPeriodsFilter": true,
+      "useDateGroupFilter": true
+    }
+  },
+  {"name":"line_chart","settings":[],"data_schema":{"label":"customer+Oro\\Bundle\\CustomerBundle\\Entity\\Customer::name","value":"totalValue(Count,number,aggregates)"}},
+  {
+    "filters": [],
+    "grouping_columns": [
+      {
+        "name": "addresses+Oro\\Bundle\\SalesBundle\\Entity\\LeadAddress::region_name"
+      }
+    ],
+    "columns": [
+      {
+        "name": "addresses+Oro\\Bundle\\SalesBundle\\Entity\\LeadAddress::region_name",
+        "label": "State",
+        "func": "",
+        "sorting": "ASC"
+      },
+      {
+        "name": "id",
+        "label": "Number of Leads",
+        "func": {
+          "name": "Count",
+          "group_type": "aggregates",
+          "group_name": "number"
+        },
+        "sorting": ""
+      }
+    ]
+  }
+]

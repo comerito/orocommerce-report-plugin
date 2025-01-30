@@ -10,7 +10,7 @@ This extension provides six predefined, highly useful reports to help you gain d
 
 ## Installation
 
-
+To be prepared...
 
 ## How to use GrumPHP
 

@@ -1,0 +1,10 @@
+comerito:
+  report_channel:
+    label: Comerito Reports
+  report_transport:
+    label: Report Transport Settings
+    business_unit_name:
+      label: Business Unit
+      option:
+        acme_general: Acme, General
+

@@ -1,0 +1,7 @@
+services:
+    comerito_report.form.type.integration_settings:
+        class: 'Comerito\Bundle\ReportBundle\Form\Type\ReportSettingType'
+        arguments:
+            - '@doctrine'
+        tags:
+            - { name: form.type }

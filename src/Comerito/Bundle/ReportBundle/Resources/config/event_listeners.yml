@@ -1,0 +1,9 @@
+services:
+    comerito_report.enable_integration_listener:
+        class: Comerito\Bundle\ReportBundle\EventListener\ReportIntegrationListener
+        arguments:
+            - '@comerito_report.loader.reports_data_loader'
+        tags:
+            - { name: kernel.event_listener, event: oro_integration.channel_enable, method: onIntegrationEnable }
+            - { name: kernel.event_listener, event: oro_integration.channel_disable, method: onIntegrationDisableOrDelete }
+            - { name: kernel.event_listener, event: oro_integration.channel_delete, method: onIntegrationDisableOrDelete }
