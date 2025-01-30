@@ -8,7 +8,7 @@
     "orocommerce-extension"
   ],
   "homepage": "https://github.com/pat-lewczuk/orocommerce-report-plugin",
-  "minimum-stability": "stable",
+  "minimum-stability": "dev",
   "license": "EUPL-1.2",
   "authors": [
     {
