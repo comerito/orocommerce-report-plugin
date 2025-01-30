@@ -1,19 +1,19 @@
 {
-  "name": "pat-lewczuk/orocommerce-report-plugin",
-  "description": "description",
+  "name": "comerito/orocommerce-report-plugin",
+  "description": "This extension provides six predefined, highly useful reports to help you gain deeper insights into your sales and customers.",
   "keywords": [
     "comerito",
     "orocommerce",
     "orocommerce-plugin",
     "orocommerce-extension"
   ],
-  "homepage": "https://github.com/pat-lewczuk/orocommerce-report-plugin",
+  "homepage": "https://github.com/comerito/orocommerce-report-plugin",
   "minimum-stability": "dev",
   "license": "EUPL-1.2",
   "authors": [
     {
-      "name": "pat-lewczuk",
-      "email": "plewczuk513@gmail.com"
+      "name": "Patryk Lewczuk",
+      "email": "patryk.lewczuk@comerito.com"
     }
   ],
   "autoload": {
