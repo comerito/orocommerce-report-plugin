@@ -18,7 +18,15 @@ Run the following Composer command to add the plugin as a dependency:
   composer require comerito/orocommerce-report-plugin
 ```
 
-### Step 2: Enable the Plugin
+### Step 2: Clear Cache
+
+Clear the cache to ensure entity data are properly loaded:
+
+```bash
+  php bin/console cache:clear
+```
+
+### Step 3: Enable the Plugin
 
 Run the following command to enable the plugin in OroCommerce:
 
@@ -26,7 +34,7 @@ Run the following command to enable the plugin in OroCommerce:
   php bin/console oro:platform:update --force
 ```
 
-### Step 3: Clear Cache
+### Step 4: Clear Cache
 
 Clear the cache to ensure the changes take effect:
 
