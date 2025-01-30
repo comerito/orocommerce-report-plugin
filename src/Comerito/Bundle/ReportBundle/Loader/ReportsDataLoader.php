@@ -7,6 +7,7 @@ use Oro\Bundle\AccountBundle\Entity\Account;
 use Oro\Bundle\IntegrationBundle\Entity\Channel;
 use Oro\Bundle\OrderBundle\Entity\Order;
 use Oro\Bundle\OrganizationBundle\Entity\BusinessUnit;
+use Oro\Bundle\OrganizationBundle\Entity\Organization;
 use Oro\Bundle\ReportBundle\Entity\Report;
 use Oro\Bundle\ReportBundle\Entity\ReportType;
 
@@ -14,8 +15,7 @@ class ReportsDataLoader
 {
     public function __construct(
         protected ManagerRegistry $registry,
-    )
-    {
+    ) {
     }
 
     // @codingStandardsIgnoreStart
@@ -52,8 +52,8 @@ class ReportsDataLoader
             'name' => 'Segment Revenue Share',
             'description' => 'Segment Revenue Share measures the percentage of total revenue contributed by a specific customer segment within a given period.',
             'type' => ReportType::TYPE_TABLE,
-            'entity' => Account::class,
-            'definition' => '{"columns":[{"name":"name","label":"Customer name","func":"","sorting":""},{"name":"lifetimeValue","label":"Lifetime sales value","func":"","sorting":""}]}'
+            'entity' => Order::class,
+            'definition' => '{"columns":[{"name":"totalValue","label":"Total","func":{"name":"Sum","group_type":"aggregates","group_name":"number"},"sorting":""},{"name":"customer+Oro\\\\Bundle\\\\CustomerBundle\\\\Entity\\\\Customer::group+Oro\\\\Bundle\\\\CustomerBundle\\\\Entity\\\\CustomerGroup::name","label":"Name","func":"","sorting":""},{"name":"customer+Oro\\\\Bundle\\\\CustomerBundle\\\\Entity\\\\Customer::addresses+Oro\\\\Bundle\\\\CustomerBundle\\\\Entity\\\\CustomerAddress::country_name","label":"Country name","func":"","sorting":""}],"grouping_columns":[{"name":"customer+Oro\\\\Bundle\\\\CustomerBundle\\\\Entity\\\\Customer::group+Oro\\\\Bundle\\\\CustomerBundle\\\\Entity\\\\CustomerGroup::name"},{"name":"customer+Oro\\\\Bundle\\\\CustomerBundle\\\\Entity\\\\Customer::addresses+Oro\\\\Bundle\\\\CustomerBundle\\\\Entity\\\\CustomerAddress::country_name"}],"date_grouping":{"fieldName":"createdAt","useSkipEmptyPeriodsFilter":true,"useDateGroupFilter":true}}'
         ],
     ];
 
@@ -64,7 +64,14 @@ class ReportsDataLoader
         $manager = $this->registry->getManager();
 
         $reportTypeRepository = $manager->getRepository(ReportType::class);
-        $businessUnitRepository = $manager->getRepository(BusinessUnit::class); // TODO generically take businessUnit
+        $businessUnitRepository = $manager->getRepository(BusinessUnit::class);
+
+        $organization = $channel->getOrganization();
+
+        if (!($organization instanceof Organization)) {
+            // TODO add logs
+            return;
+        }
 
         foreach ($this->reports as $values) {
             $report = new Report();
@@ -74,7 +81,7 @@ class ReportsDataLoader
             $report->setType($reportTypeRepository->findOneBy(['name' => $values['type']]));
             $report->setOwner($businessUnitRepository->findOneBy(['name' => $businessUnitName]));
             $report->setDefinition($values['definition']);
-            $report->setOrganization($channel->getOrganization());
+            $report->setOrganization($organization);
             $manager->persist($report);
         }
 
@@ -84,6 +91,8 @@ class ReportsDataLoader
     public function handleDelete(): void
     {
         $manager = $this->registry->getManager();
+
+        /** @phpstan-ignore method.notFound */
         $reports = $manager->getRepository(Report::class)->createQueryBuilder('r')
             ->where('r.name like :searchTerm')
             ->setParameter('searchTerm', '%Comerito%')
