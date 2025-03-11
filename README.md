@@ -6,7 +6,7 @@ This extension provides six predefined, highly useful reports to help you gain d
 | | Version       |
 | :--- |:--------------|
 | PHP  | 8.2, 8.3, 8.4 |
-| OroCommerce | 5.0, 5.1, 6.0 |
+| OroCommerce | 5.1, 6.0 |
 
 ## Installation
 
