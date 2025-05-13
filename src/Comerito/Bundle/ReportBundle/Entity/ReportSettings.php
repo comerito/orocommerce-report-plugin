@@ -18,6 +18,8 @@ class ReportSettings extends Transport
     #[ORM\Column(name: 'business_unit_name', type: Types::STRING, length: 255)]
     private ?string $businessUnitName = null;
 
+    #[ORM\Column(name: 'report_ids', type: Types::ARRAY, nullable: true)]
+    private ?array $reportIds = null;
 
     public function getBusinessUnitName(): string
     {
@@ -29,12 +31,23 @@ class ReportSettings extends Transport
         $this->businessUnitName = $businessUnitName;
     }
 
+    public function getReportIds(): ?array
+    {
+        return $this->reportIds;
+    }
+
+    public function setReportIds(?array $reportIds): void
+    {
+        $this->reportIds = $reportIds;
+    }
+
     #[\Override]
     public function getSettingsBag(): ParameterBag
     {
         if (null === $this->settings) {
             $this->settings = new ParameterBag([
                 'business_unit_name' => $this->getBusinessUnitName(),
+                'report_ids' => $this->getReportIds(),
             ]);
         }
 

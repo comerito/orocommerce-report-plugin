@@ -2,6 +2,7 @@
 
 namespace Comerito\Bundle\ReportBundle\Loader;
 
+use Comerito\Bundle\ReportBundle\Entity\ReportSettings;
 use Doctrine\Persistence\ManagerRegistry;
 use Oro\Bundle\AccountBundle\Entity\Account;
 use Oro\Bundle\CustomerBundle\Entity\Customer;
@@ -93,9 +94,20 @@ class ReportsDataLoader
             return;
         }
 
+        // Get the transport to store report IDs
+        $transport = $channel->getTransport();
+        if (!($transport instanceof ReportSettings)) {
+            $this->logger->error(
+                'ComeritoReportPlugin.ReportsDataLoader: Invalid transport type unable to store report IDs.'
+            );
+            return;
+        }
+
+        $createdReportIds = [];
+        
         foreach ($this->reports as $values) {
             $report = new Report();
-            $report->setName($values['name'] . ' Comerito');
+            $report->setName($values['name']);
             $report->setDescription($values['description']);
             $report->setEntity($values['entity']);
             $report->setType($reportTypeRepository->findOneBy(['name' => $values['type']]));
@@ -103,24 +115,40 @@ class ReportsDataLoader
             $report->setDefinition($values['definition']);
             $report->setOrganization($organization);
             $manager->persist($report);
-        }
+            $manager->flush(); 
 
+            $createdReportIds[] = $report->getId();
+        }
+   
+        $transport->setReportIds($createdReportIds);
+        $manager->persist($transport);
         $manager->flush();
     }
 
-    public function handleDelete(): void
+    public function handleDelete(Channel $channel): void
     {
         $manager = $this->registry->getManager();
-
-        /** @phpstan-ignore method.notFound */
-        $reports = $manager->getRepository(Report::class)->createQueryBuilder('r')
-            ->where('r.name like :searchTerm')
-            ->setParameter('searchTerm', '%Comerito%')
-            ->getQuery()
-            ->getResult();
-
+        $transport = $channel->getTransport();
+        
+        if (!($transport instanceof ReportSettings)) {
+            return;
+        }
+        
+        $reportIds = $transport->getReportIds();
+        
+        if (empty($reportIds)) {
+            return;
+        }
+        
+        $reports = $manager->getRepository(Report::class)->findBy(['id' => $reportIds]);
+        
         foreach ($reports as $report) {
             $manager->remove($report);
         }
+        
+
+        $transport->setReportIds(null);
+        $manager->persist($transport);
+        $manager->flush();
     }
 }

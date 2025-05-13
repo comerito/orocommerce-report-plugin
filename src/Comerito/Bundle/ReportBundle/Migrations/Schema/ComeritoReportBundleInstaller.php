@@ -12,12 +12,13 @@ class ComeritoReportBundleInstaller implements Installation
 
     public function getMigrationVersion(): string
     {
-        return 'v0_5';
+        return 'v0_7';
     }
 
     public function up(Schema $schema, QueryBag $queries): void
     {
         $table = $schema->getTable('oro_integration_transport');
         $table->addColumn('business_unit_name', Types::STRING, ['length' => 255, 'notnull' => false]);
+        $table->addColumn('report_ids', Types::ARRAY, ['notnull' => false]);
     }
 }
