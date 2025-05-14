@@ -33,7 +33,7 @@ readonly class ReportIntegrationListener
         $channel = $event->getChannel();
         $channelType = $channel->getType();
         if ($channelType === ReportChannel::TYPE) {
-            $this->reportsDataLoader->handleDelete();
+            $this->reportsDataLoader->handleDelete($channel);
         }
     }
 }
