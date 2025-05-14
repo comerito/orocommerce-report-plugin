@@ -1,12 +1,14 @@
 # orocommerce-report-plugin
 This extension provides six predefined, highly useful reports to help you gain deeper insights into your sales and customers.
 
+Release for OroCommerce 5.1.* version.
+
 ## Requirements
 
-| | Version       |
-| :--- |:--------------|
-| PHP  | 8.2, 8.3, 8.4 |
-| OroCommerce | 5.1, 6.0 |
+| | Version |
+| :--- |:--------|
+| PHP  | 8.2     |
+| OroCommerce | 5.1     |
 
 ## Installation
 
