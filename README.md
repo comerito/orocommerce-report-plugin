@@ -1,12 +1,14 @@
 # orocommerce-report-plugin
 This extension provides six predefined, highly useful reports to help you gain deeper insights into your sales and customers.
 
+Release for OroCommerce 6.0.* version.
+
 ## Requirements
 
 | | Version       |
 | :--- |:--------------|
-| PHP  | 8.2, 8.3, 8.4 |
-| OroCommerce | 5.1, 6.0 |
+| PHP  | 8.3 |
+| OroCommerce | 6.0 |
 
 ## Installation
 
@@ -15,7 +17,7 @@ This extension provides six predefined, highly useful reports to help you gain d
 Run the following Composer command to add the plugin as a dependency:
 
 ```bash
-  composer require comerito/orocommerce-report-plugin
+  composer require "comerito/orocommerce-report-plugin":"~6.0.0"
 ```
 
 ### Step 2: Clear Cache
