@@ -9,6 +9,7 @@
   ],
   "homepage": "https://github.com/comerito/orocommerce-report-plugin",
   "minimum-stability": "dev",
+  "prefer-stable": true,
   "license": "EUPL-1.2",
   "authors": [
     {
@@ -25,8 +26,8 @@
     ]
   },
   "require": {
-    "php": ">=8.2 <8.4",
-    "oro/commerce": "5.1.* || 6.0.*"
+    "php": "~8.3.0",
+    "oro/commerce": "6.1.*"
   },
   "repositories": {
     "oro": {
